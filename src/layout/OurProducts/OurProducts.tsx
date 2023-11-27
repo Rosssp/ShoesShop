@@ -13,7 +13,7 @@ interface Product {
 }
 
 interface Data {
-    data: Product[];
+    data: Product[] | null;
 }
 
 export default function OurProducts(props: Data) {

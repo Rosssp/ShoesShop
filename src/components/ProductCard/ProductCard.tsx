@@ -2,24 +2,25 @@ import styles from "./ProductCard.module.scss";
 import { useEffect, useState, useRef } from "react";
 
 interface Props {
-    title: string | undefined;
-    price: number | undefined;
-    img: [string] | undefined;
+    title?: string;
+    price?: number;
+    img?: string;
 }
 
 export default function ProductCard(props: Props) {
     const [fontSize, setFontSize] = useState("100%");
     const [subFontSize, setSubFontSize] = useState("100%");
-    const wrapperWidth = useRef(null);
+    const wrapperWidth = useRef<HTMLAnchorElement>(null);
 
     useEffect(() => {
         if (wrapperWidth.current) {
-            const elementWidth = wrapperWidth?.current?.offsetWidth;
+            const elementWidth = wrapperWidth.current.offsetWidth;
 
             const adjustFontSize = () => {
-                const fontSizeRatio = elementWidth / props?.title?.length;
+                const fontSizeRatio =
+                    elementWidth / (props?.title?.length || 1);
                 const fontSubSizeRatio =
-                    elementWidth / props?.price.toString().length;
+                    elementWidth / (props?.price?.toString().length || 1);
 
                 setFontSize(`${fontSizeRatio * 12}%`);
                 setSubFontSize(`${fontSubSizeRatio * 1.5}%`);
