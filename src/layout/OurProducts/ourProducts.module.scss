@@ -1,0 +1,19 @@
+.wrapper {
+    margin-top: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.wrapper > * {
+    aspect-ratio: 4 / 3;
+    flex-grow: 1;
+    width: 300px;
+    max-width: 714px;
+    &:nth-child(5n),
+    &:nth-child(6n) {
+        width: 714px;
+    }
+}

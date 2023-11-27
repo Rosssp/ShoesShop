@@ -1,0 +1,55 @@
+@import "../../variables";
+
+.wrapper {
+    z-index: 10;
+    align-items: center;
+    height: 114px;
+    background-color: rgba(255, 255, 255, 0.001);
+    backdrop-filter: blur(12px);
+    position: relative;
+    position: fixed;
+    width: 100%;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo > * {
+        font-weight: 900;
+        cursor: pointer;
+        font-size: 54px;
+        letter-spacing: 4px;
+    }
+    & ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+        & li {
+            font-size: 18px;
+            font-weight: 100;
+        }
+    }
+    .basket {
+        background-color: $btn_bg;
+        color: $btn_color;
+        width: max-content;
+        padding: 14px 24px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+        & > p {
+            position: relative;
+            &::after {
+                content: "|";
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                transform: translateY(-53%);
+            }
+        }
+    }
+}

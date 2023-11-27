@@ -1,0 +1,96 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    max-height: 100vh;
+    position: relative;
+    // overflow: hidden;
+    & > div {
+        flex: 1 0 50%;
+    }
+    .left {
+        z-index: 5;
+        height: 100%;
+        transition: 1.5s cubic-bezier(0.05, 0.5, 0, 1);
+
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        & > * {
+            transition: 1.5s cubic-bezier(0.05, 0.5, 0, 1);
+        }
+        & h1 {
+            margin-bottom: 24px;
+            & span {
+                color: #fc5185;
+            }
+        }
+        & > p {
+            margin-bottom: 64px;
+            font-size: 16px;
+            opacity: 0.3;
+        }
+    }
+    .right {
+        z-index: 4;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+
+        & > * {
+            transition: 1.5s cubic-bezier(0.05, 0.5, 0, 1);
+        }
+        .plate {
+            z-index: 3;
+            position: absolute;
+            top: 24%;
+            left: 30%;
+            // transform: translateX(-30%) translateY(-50%);
+            width: 40%;
+            height: 60%;
+            // background-color: rgb(255, 255, 255);
+            background: linear-gradient(white 80%, #fc5185 100%);
+            rotate: (-12deg);
+
+            // animation: toRight 1s infinite alternate-reverse
+            //     cubic-bezier(0.05, 0.5, 0, 1);
+        }
+        .text {
+            transform: rotate3d(1, 1, 1, 45deg);
+
+            z-index: 4;
+            position: absolute;
+            color: white;
+            top: 18%;
+            left: 44%;
+            // transform: translateX(-0%) translateY(-50%);
+            width: max-content;
+            height: max-content;
+            font-weight: 900;
+            font-size: 100px;
+            mix-blend-mode: difference;
+            writing-mode: vertical-rl;
+            text-shadow: 2px 2px 1px black;
+            rotate: (-12deg);
+        }
+        & img {
+            z-index: 4;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+        }
+    }
+}
+
+// @keyframes toRight {
+//     from {
+//         transform: rotate3d(1, 1, 1, 45deg);
+//     }
+//     to {
+//         transform: rotate3d(1, 1, 1, 0deg);
+//     }
+// }

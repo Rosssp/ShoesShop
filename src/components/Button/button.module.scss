@@ -1,0 +1,20 @@
+@import "../../variables";
+
+.wrapper {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: 12px 24px;
+    background-color: $btn_bg;
+    transition: 0.5s;
+    & > h2 {
+        color: $btn_color !important;
+        font-size: 18px !important;
+    }
+    &:hover {
+        scale: 1.05;
+    }
+    &:active {
+        scale: 0.8;
+    }
+}

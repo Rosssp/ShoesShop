@@ -1,0 +1,43 @@
+@import "../../variables";
+
+.wrapper {
+    width: max-content;
+    height: max-content;
+    overflow: hidden;
+    background: linear-gradient(to left, white 50%, transparent 50%);
+    position: relative;
+    &:hover {
+        & .img {
+            transform: translateY(10%) translateX(10%);
+        }
+    }
+
+    & .title,
+    & .price {
+        position: absolute;
+        mix-blend-mode: difference;
+    }
+
+    & .title {
+        width: 100%;
+        font-weight: 900;
+        text-transform: uppercase;
+        text-align: left;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    & .price {
+        bottom: 0%;
+        left: 0%;
+        font-weight: 900;
+        z-index: 5;
+    }
+
+    & .img {
+        position: absolute;
+        pointer-events: none;
+        transition: all 0.5s;
+        transform: translateY(10%) translateX(20%);
+    }
+}
