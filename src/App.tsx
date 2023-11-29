@@ -4,7 +4,6 @@ import Header from "./components/Header/Header";
 import Main from "./layout/Main/Main";
 import axios from "axios";
 import OurProducts from "./layout/OurProducts/OurProducts";
-// import Spacer from "./components/Spacer/Spacer";
 
 interface Item {
     id: number;

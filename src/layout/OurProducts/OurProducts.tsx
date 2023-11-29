@@ -17,7 +17,7 @@ interface Data {
 }
 
 export default function OurProducts(props: Data) {
-    console.log("loool", props?.data);
+    console.log("OurProducts", props?.data);
 
     return (
         <div className="wrapper">

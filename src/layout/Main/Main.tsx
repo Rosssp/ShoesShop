@@ -1,41 +1,46 @@
 declare global {
     interface Window {
-        grained: (element: string, options: any) => void;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        grained: any;
     }
 }
+
 import Button from "../../components/Button/Button";
 import styles from "./main.module.scss";
 import classNames from "classnames";
 import Shoes from "../../assets/images/converse.png";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useWindowSize from "../../hooks/useWindowSize";
 
 export default function Main() {
     const MainId = useRef<HTMLDivElement>(null);
-    const options = useMemo(
-        () => ({
-            animate: true,
-            patternWidth: 100.71,
-            patternHeight: 100.61,
-            grainOpacity: 0.5,
-            grainDensity: 5.07,
-            grainWidth: 0.46,
-            grainHeight: 1,
-            grainChaos: 2,
-            grainSpeed: 1,
-        }),
-        []
-    );
+    const options = {
+        animate: true,
+        patternWidth: 100.71,
+        patternHeight: 100.61,
+        grainOpacity: 0.5,
+        grainDensity: 5.07,
+        grainWidth: 0.46,
+        grainHeight: 1,
+        grainChaos: 2,
+        grainSpeed: 1,
+    };
+
     useEffect(() => {
-        const grained = window?.grained;
-        grained(`#${MainId?.current?.id}`, options);
-        if (grained) {
-            grained(`#${MainId?.current?.id}`, options);
-            console.log(grained);
-        } else {
-            console.error("grained is not available on window");
+        if (typeof window !== "undefined") {
+            const grainedd = window?.grained;
+            if (grainedd) {
+                try {
+                    grainedd(`#${MainId?.current?.id}`, options);
+                    console.log("grained", grainedd);
+                } catch (error) {
+                    console.error("Error initializing grained:", error);
+                }
+            } else {
+                console.error("grained is not available on window");
+            }
         }
-    }, [options]);
+    }, []);
 
     const [x, setXPos] = useState(0);
     const [y, setYPos] = useState(0);
